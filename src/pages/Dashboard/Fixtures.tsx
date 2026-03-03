@@ -1,50 +1,14 @@
-import { CalendarRange, ChevronLeft, ChevronRight, Radio } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import Header from "../../components/common/Header";
 import { useFixtures } from "../../hooks/useFixtures";
-
-function getDates() {
-  const today = new Date();
-  const tempDates = [];
-  for (let i = -3; i <= 3; i++) {
-    const d = new Date();
-    d.setDate(today.getDate() + i);
-    const day = d
-      .toLocaleDateString("en-US", { weekday: "short" })
-      .toUpperCase();
-    const date = d
-      .toLocaleDateString("en-US", { day: "2-digit", month: "short" })
-      .toUpperCase();
-    tempDates.push({ day, date, offset: i });
-  }
-  return tempDates;
-}
-
-const filters = [
-  {
-    key: "all",
-    label: "All",
-    count: 6,
-  },
-  {
-    key: "live",
-    label: "Live",
-    count: 4,
-    icon: <Radio className="size-4" />,
-  },
-  {
-    key: "favorites",
-    label: "Favorites",
-    count: 2,
-    icon: <img src="/heart.svg" alt="Heart Icon" className="size-4" />,
-  },
-];
+import FixturesHeaderSection from "../../sections/FixturesHeaderSection";
+import FilterByDateSection from "../../sections/FilterByDateSection";
+import MatchStatusFilter from "../../sections/MatchStatusFilter";
 
 function Fixtures() {
   const { data, isLoading, isError, error } = useFixtures();
   const [active, setActive] = useState("all");
-  const [dates] =
-    useState<{ day: string; date: string; offset: number }[]>(getDates());
 
   console.log("data ", data);
   console.log("isLoading ", isLoading);
@@ -54,83 +18,11 @@ function Fixtures() {
   return (
     <div className="flex flex-col w-full ">
       <Header />
-
       <div className="bg-background min-h-screen p-4 lg:px-72 md:py-4 flex flex-col space-y-4 w-full">
-        <div className="hidden md:flex flex-col space-y-4">
-          <h6 className="text-white text-xl">Macthes</h6>
-          <div className="bg-cardBg px-4 py-3 flex justify-between items-center">
-            <ChevronLeft className="text-white size-5 cursor-pointer" />
-            <div className="flex space-x-2 items-center cursor-pointer">
-              <CalendarRange className="text-white size-5" />
-              <h6 className="text-white">Today</h6>
-            </div>
-            <ChevronRight className="text-white size-5 cursor-pointer" />
-          </div>
-        </div>
-
-        {/* mobile filter by date */}
-        <div className="flex md:hidden relative pb-2">
-          <div className="flex space-x-4 py-2 overflow-x-auto scrollbar-hidden snap-x snap-mandatory">
-            {dates.map((d, i) => {
-              const distance = Math.abs(d.offset);
-              const opacity = Math.max(0.2, 1 - distance * 0.25);
-              const colorClass =
-                d.offset === 0 ? "text-secondary" : `text-[#DEDFE0]`;
-
-              return (
-                <div
-                  key={i}
-                  className={`flex flex-col space-y-0.5 snap-start min-w-15 text-center`}
-                  style={{ opacity }}
-                >
-                  <p className={`text-xs ${colorClass}`}>{d?.day}</p>
-                  <p className={`text-xs  ${colorClass}`}>{d.date}</p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 p-1 rounded-l-md cursor-pointer">
-            <img
-              src="/calander.svg"
-              alt="Calendar Icon"
-              className="cursor-pointer"
-            />
-          </div>
-        </div>
-
-        <div className="flex space-x-4">
-          {filters.map((item) => {
-            const isActive = active === item.key;
-            return (
-              <div
-                key={item.key}
-                onClick={() => setActive(item.key)}
-                className={`flex space-x-2 rounded-xl px-3 py-2 items-center cursor-pointer transition ${
-                  isActive ? "bg-secondary" : "bg-cardBg"
-                }`}
-              >
-                {item.icon && (
-                  <div className={isActive ? "text-black" : "text-white"}>
-                    {item.icon}
-                  </div>
-                )}
-
-                <h6
-                  className={`text-sm ${
-                    isActive ? "text-black" : "text-white"
-                  }`}
-                >
-                  {item.label}
-                </h6>
-
-                <div className="bg-background rounded-full size-4 text-secondary flex items-center justify-center">
-                  <h6 className="text-white text-xs">{item.count}</h6>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
+        <FixturesHeaderSection />
+        <FilterByDateSection />
+        <MatchStatusFilter active={active} setActive={setActive} />
+        {/* champions league */}
         <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full">
           <div className="flex justify-between w-full items-center pb-2">
             <h6 className="text-white text-sm">UEFA Champions League</h6>
@@ -244,7 +136,7 @@ function Fixtures() {
           </div>
           <hr className="border border-b-[#2A2B41]" />
         </div>
-
+        {/* englihs premier league */}
         <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full">
           <div className="flex justify-between w-full items-center pb-2">
             <h6 className="text-white text-sm">English Premier League</h6>
@@ -292,9 +184,7 @@ function Fixtures() {
               </div>
             </div>
           </div>
-
           <hr className="border border-b-[#2A2B41]" />
-
           <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
             <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
             <div className="py-5 relative z-10">
@@ -341,7 +231,6 @@ function Fixtures() {
             </div>
           </div>
           <hr className="border border-b-[#2A2B41]" />
-
           <div className="border-l-2 border-[#374151] flex items-center">
             <div className="py-5">
               <span className="text-white text-xs px-2">23:00</span>
@@ -364,7 +253,6 @@ function Fixtures() {
                 </h6>
               </div>
             </div>
-
             <div className="flex justify-end py-2  w-full items-center space-x-5  ">
               <div className="flex items-center">
                 <img
@@ -375,9 +263,7 @@ function Fixtures() {
               </div>
             </div>
           </div>
-
           <hr className="border border-b-[#2A2B41]" />
-
           <div className="border-l-2 border-[#374151] flex items-center">
             <div className="py-5">
               <span className="text-white text-xs px-2">23:00</span>
