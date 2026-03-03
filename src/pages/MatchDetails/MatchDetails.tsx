@@ -98,7 +98,7 @@ function MatchDetails() {
             <hr className="border-b border-[#292B41] w-full" />
           </div>
 
-          <div className="flex flex-col space-y-2 items-center ">
+          <div className="flex flex-col space-y-2 items-center justify-center ">
             <div className="flex space-x-1 items-center">
               <div className="flex space-x-2 items-center">
                 <div className="flex flex-col">
@@ -129,11 +129,334 @@ function MatchDetails() {
                   className="size-4"
                 />
                 <div className="flex flex-col">
-                  <h6 className="text-sm text-white">Gyokores</h6>
-                  <h6 className="text-sm text-[#6B7280]">Odegard</h6>
+                  <h6 className="text-sm text-white">Ekitike</h6>
+                  <h6 className="text-sm text-[#6B7280]">Sallah</h6>
                 </div>
               </div>
             </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Saliba</h6>
+                </div>
+                <img
+                  src="/yellow.svg"
+                  alt="yellow card icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                78’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">3rd corner</h6>
+                </div>
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Rice</h6>
+                  <h6 className="text-sm text-[#6B7280]">Zubemendi</h6>
+                </div>
+                <img
+                  src="/exchange.svg"
+                  alt="exchange icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                89’
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="flex space-x-2 items-center">
+                <img
+                  src="/exchange.svg"
+                  alt="exchange icon"
+                  className="size-4"
+                />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Frimpong</h6>
+                  <h6 className="text-sm text-[#6B7280]">Robertson</h6>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                78’
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="flex space-x-2 items-center">
+                <img
+                  src="/redCard2.svg"
+                  alt="red card icon"
+                  className="size-4"
+                />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Van Dijk</h6>
+                  <h6 className="text-sm text-[#6B7280]">Sent Off</h6>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Ekitike</h6>
+                </div>
+                <img
+                  src="/greenball.svg"
+                  alt="green ball icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl ">
+                88’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">5th corner</h6>
+                </div>
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+            </div>
+            <div className="flex space-x-1 items-center">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">5th corner</h6>
+                </div>
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <hr className="border-b border-[#292B41] w-full" />
+            <div className="flex space-x-2  whitespace-nowrap text-[#E5E7EB]">
+              <h6>Halftime ‘</h6>
+              <h6>1 - 0</h6>
+            </div>
+            <hr className="border-b border-[#292B41] w-full" />
+          </div>
+
+          <div className="flex flex-col space-y-2 items-center justify-center ">
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">2nd corner</h6>
+                </div>
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                  89’
+                </div>
+                <hr className="border-b border-[#292B41] w-4" />
+                <img
+                  src="/exchange.svg"
+                  alt="exchange icon"
+                  className="size-4"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h6 className="text-sm text-white">Jones</h6>
+                <h6 className="text-sm text-[#6B7280]">Mcalister</h6>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Saliba</h6>
+                </div>
+                <img
+                  src="/yellow.svg"
+                  alt="yellow card icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                78’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                  89’
+                </div>
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/injured.svg" alt="injured icon" className="size-4" />
+              </div>
+              <div className="flex flex-col">
+                <h6 className="text-sm text-white">Jones</h6>
+                <h6 className="text-sm text-[#6B7280]">Injured</h6>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">5th corner</h6>
+                </div>
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                  78’
+                </div>
+                <hr className="border-b border-[#292B41] w-4" />
+                <img
+                  src="/yellow.svg"
+                  alt="yellow card icon"
+                  className="size-4"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h6 className="text-sm text-white">Saliba</h6>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Gyokores</h6>
+                </div>
+                <img
+                  src="/offThePost.svg"
+                  alt="off the post icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+
+              <div className="flex space-x-2 items-center">
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">5th corner</h6>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="flex space-x-2 items-center">
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Ekitike</h6>
+                  <h6 className="text-sm text-[#6B7280]">Sallah</h6>
+                </div>
+                <img
+                  src="/greenball.svg"
+                  alt="green ball icon"
+                  className="size-4"
+                />
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl ">
+                88’
+              </div>
+            </div>
+
+            <div className="flex space-x-1 items-center">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+                74’
+              </div>
+              <hr className="border-b border-[#292B41] w-4" />
+
+              <div className="flex space-x-2 items-center">
+                <img
+                  src="/cornaFlag.svg"
+                  alt="corner flag icon"
+                  className="size-4"
+                />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">5th corner</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <hr className="border-b border-[#292B41] w-full" />
+            <div className="flex space-x-2  whitespace-nowrap text-[#E5E7EB]">
+              <h6>Kick Off -13:00</h6>
+            </div>
+            <hr className="border-b border-[#292B41] w-full" />
           </div>
         </div>
       </div>
