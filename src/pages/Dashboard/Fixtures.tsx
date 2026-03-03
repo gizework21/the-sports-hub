@@ -19,7 +19,28 @@ function getDates() {
   return tempDates;
 }
 
+const filters = [
+  {
+    key: "all",
+    label: "All",
+    count: 6,
+  },
+  {
+    key: "live",
+    label: "Live",
+    count: 4,
+    icon: <Radio className="size-4" />,
+  },
+  {
+    key: "favorites",
+    label: "Favorites",
+    count: 2,
+    icon: <img src="/heart.svg" alt="Heart Icon" className="size-4" />,
+  },
+];
+
 function Fixtures() {
+  const [active, setActive] = useState("all");
   const [dates] =
     useState<{ day: string; date: string; offset: number }[]>(getDates());
 
@@ -31,12 +52,12 @@ function Fixtures() {
         <div className="hidden md:flex flex-col space-y-4">
           <h6 className="text-white text-xl">Macthes</h6>
           <div className="bg-cardBg px-4 py-3 flex justify-between items-center">
-            <ChevronLeft className="text-white size-5" />
-            <div className="flex space-x-2 items-center">
+            <ChevronLeft className="text-white size-5 cursor-pointer" />
+            <div className="flex space-x-2 items-center cursor-pointer">
               <CalendarRange className="text-white size-5" />
               <h6 className="text-white">Today</h6>
             </div>
-            <ChevronRight className="text-white size-5" />
+            <ChevronRight className="text-white size-5 cursor-pointer" />
           </div>
         </div>
 
@@ -61,8 +82,6 @@ function Fixtures() {
               );
             })}
           </div>
-
-          {/* Calendar Icon */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 p-1 rounded-l-md cursor-pointer">
             <img
               src="/calander.svg"
@@ -73,26 +92,36 @@ function Fixtures() {
         </div>
 
         <div className="flex space-x-4">
-          <div className="flex space-x-2 bg-secondary rounded-xl px-3 py-2 items-center cursor-pointer">
-            <h6 className="text-black text-sm">All</h6>
-            <div className="bg-background rounded-full size-4 text-secondary flex items-center justify-center">
-              <h6 className="text-white text-xs">6</h6>
-            </div>
-          </div>
-          <div className="flex space-x-2 bg-cardBg rounded-xl px-3 py-2 items-center cursor-pointer">
-            <Radio className="text-white size-4" />
-            <h6 className="text-white text-sm">Live</h6>
-            <div className="bg-background rounded-full size-4 text-secondary flex items-center justify-center">
-              <h6 className="text-white text-xs">4</h6>
-            </div>
-          </div>
-          <div className="flex space-x-2 bg-cardBg rounded-xl px-3 py-2 items-center cursor-pointer">
-            <img src="/heart.svg" alt="Heart Icon" className="size-4" />
-            <h6 className="text-white text-sm">Favorites</h6>
-            <div className="bg-background rounded-full size-4 text-secondary flex items-center justify-center">
-              <h6 className="text-white text-xs">2</h6>
-            </div>
-          </div>
+          {filters.map((item) => {
+            const isActive = active === item.key;
+            return (
+              <div
+                key={item.key}
+                onClick={() => setActive(item.key)}
+                className={`flex space-x-2 rounded-xl px-3 py-2 items-center cursor-pointer transition ${
+                  isActive ? "bg-secondary" : "bg-cardBg"
+                }`}
+              >
+                {item.icon && (
+                  <div className={isActive ? "text-black" : "text-white"}>
+                    {item.icon}
+                  </div>
+                )}
+
+                <h6
+                  className={`text-sm ${
+                    isActive ? "text-black" : "text-white"
+                  }`}
+                >
+                  {item.label}
+                </h6>
+
+                <div className="bg-background rounded-full size-4 text-secondary flex items-center justify-center">
+                  <h6 className="text-white text-xs">{item.count}</h6>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full">
@@ -102,7 +131,6 @@ function Fixtures() {
               <ChevronRight className="text-white items-end size-5" />
             </div>
           </div>
-
           <div className="border-l-2 border-danger flex items-center">
             <div className="py-5">
               <span className="text-danger text-xs px-4">FT</span>
