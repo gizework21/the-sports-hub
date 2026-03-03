@@ -1,6 +1,7 @@
 import { CalendarRange, ChevronLeft, ChevronRight, Radio } from "lucide-react";
 import { useState } from "react";
 import Header from "../../components/common/Header";
+import { useFixtures } from "../../hooks/useFixtures";
 
 function getDates() {
   const today = new Date();
@@ -40,9 +41,15 @@ const filters = [
 ];
 
 function Fixtures() {
+  const { data, isLoading, isError, error } = useFixtures();
   const [active, setActive] = useState("all");
   const [dates] =
     useState<{ day: string; date: string; offset: number }[]>(getDates());
+
+  console.log("data ", data);
+  console.log("isLoading ", isLoading);
+  console.log("isError ", isError);
+  console.log("error ", error);
 
   return (
     <div className="flex flex-col w-full ">
@@ -73,7 +80,7 @@ function Fixtures() {
               return (
                 <div
                   key={i}
-                  className={`flex flex-col space-y-0.5 snap-start min-w-[60px] text-center`}
+                  className={`flex flex-col space-y-0.5 snap-start min-w-15 text-center`}
                   style={{ opacity }}
                 >
                   <p className={`text-xs ${colorClass}`}>{d?.day}</p>
@@ -247,7 +254,7 @@ function Fixtures() {
           </div>
 
           <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-gradient-to-r from-[#1B3337] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
             <div className="py-5 relative z-10">
               <span className="text-secondary text-xs px-4 font-bold underline decoration-2 underline-offset-4">
                 63'
@@ -289,7 +296,7 @@ function Fixtures() {
           <hr className="border border-b-[#2A2B41]" />
 
           <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-gradient-to-r from-[#1B3337] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
             <div className="py-5 relative z-10">
               <span className="text-secondary text-xs px-4 font-bold underline decoration-2 underline-offset-4">
                 HT

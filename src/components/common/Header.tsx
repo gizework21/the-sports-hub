@@ -30,7 +30,7 @@ function Header() {
           onClick={() => navigate(Paths.home)}
           src="/logo.svg"
           alt="Logo"
-          className="w-[90px] h-[30px] md:w-[200px] md:h-[60px] cursor-pointer"
+          className="w-22.5 h-7.5 md:w-50 md:h-15 cursor-pointer"
         />
 
         {/* Navigation Links */}
@@ -41,7 +41,7 @@ function Header() {
               className={`
               p-2 cursor-pointer
               ${link.muted ? "text-muted" : "text-white hover:text-secondary"}
-              ${link.active ? "!text-secondary border-b-secondary border-b-3" : ""}
+              ${link.active ? "text-secondary! border-b-secondary border-b-3" : ""}
               ${!link.active && !link.muted ? "hover:border-b-secondary hover:border-b-3" : ""}
             `}
             >
@@ -93,7 +93,7 @@ function Header() {
         </div>
       </div>
       {openMenu && (
-        <div className="overflow-x-auto scrollbar-hidden flex md:hidden">
+        <div className="overflow-x-auto scrollbar-hidden flex lg:hidden w-full">
           <div className="flex space-x-2 text-white py-1">
             {navLinks.map((link, index) => (
               <span
