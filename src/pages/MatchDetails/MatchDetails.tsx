@@ -34,7 +34,6 @@ function MatchDetails() {
             />
             <span className="text-sm text-white">English Premier league</span>
           </div>
-
           <div className="flex justify-evenly">
             <div className="flex flex-col items-center">
               <div className="relative">
@@ -47,7 +46,6 @@ function MatchDetails() {
               </div>
               <h6 className="text-white text-center text-sm">Arsenal</h6>
             </div>
-
             <div className="flex flex-col items-center space-y-0.5">
               <h6 className="text-sm text-[#E5E7EB]">11 AUG</h6>
               <h6 className="text-2xl text-white">2 - 1</h6>
@@ -55,7 +53,6 @@ function MatchDetails() {
                 Finished
               </div>
             </div>
-
             <div className="flex flex-col items-center">
               <div className="relative">
                 <img
@@ -68,7 +65,6 @@ function MatchDetails() {
                   alt=""
                   className="absolute -left-2 top-0"
                 />
-
                 <img src="/liverpoolLg.svg" alt="arsenal logo" />
               </div>
               <h6 className="text-white text-center text-sm">Liverpool</h6>
@@ -103,36 +99,29 @@ function MatchDetails() {
             <hr className="border-b border-[#292B41] w-full" />
           </div>
 
-          <div className="flex flex-col space-y-2 items-center justify-center ">
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+          <div className="flex flex-col space-y-2 items-center justify-center w-full">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Gyokores</h6>
                   <h6 className="text-sm text-[#6B7280]">Odegard</h6>
                 </div>
-                <img
-                  src="/exchange.svg"
-                  alt="exchange icon"
-                  className="size-4"
-                />
+                <img src="/exchange.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 89’
               </div>
+              <div />
             </div>
-
-            <div className="flex space-x-1 items-center">
-              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl ">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl justify-self-center">
                 88’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/greenball.svg"
-                  alt="green ball icon"
-                  className="size-4"
-                />
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/greenball.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Ekitike</h6>
                   <h6 className="text-sm text-[#6B7280]">Sallah</h6>
@@ -140,63 +129,49 @@ function MatchDetails() {
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Saliba</h6>
                 </div>
-                <img
-                  src="/yellow.svg"
-                  alt="yellow card icon"
-                  className="size-4"
-                />
+                <img src="/yellow.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 78’
               </div>
+              <div />
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">3rd corner</h6>
                 </div>
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
+              <div />
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Rice</h6>
                   <h6 className="text-sm text-[#6B7280]">Zubemendi</h6>
                 </div>
-                <img
-                  src="/exchange.svg"
-                  alt="exchange icon"
-                  className="size-4"
-                />
+                <img src="/exchange.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 89’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/exchange.svg"
-                  alt="exchange icon"
-                  className="size-4"
-                />
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/exchange.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Frimpong</h6>
                   <h6 className="text-sm text-[#6B7280]">Robertson</h6>
@@ -204,17 +179,14 @@ function MatchDetails() {
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 78’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/redCard2.svg"
-                  alt="red card icon"
-                  className="size-4"
-                />
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/redCard2.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Van Dijk</h6>
                   <h6 className="text-sm text-[#6B7280]">Sent Off</h6>
@@ -222,54 +194,45 @@ function MatchDetails() {
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Ekitike</h6>
                 </div>
-                <img
-                  src="/greenball.svg"
-                  alt="green ball icon"
-                  className="size-4"
-                />
+                <img src="/greenball.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl ">
+              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl justify-self-center">
                 88’
               </div>
+              <div />
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">5th corner</h6>
                 </div>
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
+              <div />
             </div>
-            <div className="flex space-x-1 items-center">
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-
-              <div className="flex space-x-2 items-center">
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">5th corner</h6>
                 </div>
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
               </div>
             </div>
           </div>
@@ -283,172 +246,144 @@ function MatchDetails() {
             <hr className="border-b border-[#292B41] w-full" />
           </div>
 
-          <div className="flex flex-col space-y-2 items-center justify-center ">
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+          <div className="flex flex-col space-y-3 items-center justify-center w-full">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">2nd corner</h6>
                 </div>
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
+              <div />
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
-                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
-                  89’
-                </div>
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
+                89’
+              </div>
+              <div className="flex items-center space-x-2 justify-self-start">
                 <hr className="border-b border-[#292B41] w-4" />
-                <img
-                  src="/exchange.svg"
-                  alt="exchange icon"
-                  className="size-4"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h6 className="text-sm text-white">Jones</h6>
-                <h6 className="text-sm text-[#6B7280]">Mcalister</h6>
+                <img src="/exchange.svg" alt="" className="size-4" />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Jones</h6>
+                  <h6 className="text-sm text-[#6B7280]">Mcalister</h6>
+                </div>
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Saliba</h6>
                 </div>
-                <img
-                  src="/yellow.svg"
-                  alt="yellow card icon"
-                  className="size-4"
-                />
+                <img src="/yellow.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 78’
               </div>
+              <div />
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
-                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
-                  89’
-                </div>
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
+                89’
+              </div>
+              <div className="flex items-center space-x-2 justify-self-start">
                 <hr className="border-b border-[#292B41] w-4" />
-                <img src="/injured.svg" alt="injured icon" className="size-4" />
-              </div>
-              <div className="flex flex-col">
-                <h6 className="text-sm text-white">Jones</h6>
-                <h6 className="text-sm text-[#6B7280]">Injured</h6>
+                <img src="/injured.svg" alt="" className="size-4" />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Jones</h6>
+                  <h6 className="text-sm text-[#6B7280]">Injured</h6>
+                </div>
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">5th corner</h6>
                 </div>
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
-            </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
-                <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
-                  78’
-                </div>
+              <div />
+            </div>
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
+                78’
+              </div>
+              <div className="flex items-center space-x-2 justify-self-start">
                 <hr className="border-b border-[#292B41] w-4" />
-                <img
-                  src="/yellow.svg"
-                  alt="yellow card icon"
-                  className="size-4"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h6 className="text-sm text-white">Saliba</h6>
+
+                <img src="/yellow.svg" alt="" className="size-4" />
+                <div className="flex flex-col">
+                  <h6 className="text-sm text-white">Saliba</h6>
+                </div>
               </div>
             </div>
-
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Gyokores</h6>
                 </div>
-                <img
-                  src="/offThePost.svg"
-                  alt="off the post icon"
-                  className="size-4"
-                />
+                <img src="/offThePost.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
+              <div />
             </div>
-
-            <div className="flex space-x-1 items-center">
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">5th corner</h6>
                 </div>
               </div>
             </div>
 
-            <div className="flex space-x-1 items-center">
-              <div className="flex space-x-2 items-center">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">Ekitike</h6>
                   <h6 className="text-sm text-[#6B7280]">Sallah</h6>
                 </div>
-                <img
-                  src="/greenball.svg"
-                  alt="green ball icon"
-                  className="size-4"
-                />
+                <img src="/greenball.svg" alt="" className="size-4" />
+                <hr className="border-b border-[#292B41] w-4" />
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
-              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl ">
+              <div className="bg-secondary text-black px-4 py-0.5 rounded-2xl justify-self-center">
                 88’
               </div>
+              <div />
             </div>
-
-            <div className="flex space-x-1 items-center">
-              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
+              <div />
+              <div className="bg-[#26273B] px-4 py-0.5 rounded-2xl text-white justify-self-center">
                 74’
               </div>
-              <hr className="border-b border-[#292B41] w-4" />
+              <div className="flex items-center space-x-2 justify-self-start">
+                <hr className="border-b border-[#292B41] w-4" />
 
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/cornaFlag.svg"
-                  alt="corner flag icon"
-                  className="size-4"
-                />
+                <img src="/cornaFlag.svg" alt="" className="size-4" />
                 <div className="flex flex-col">
                   <h6 className="text-sm text-white">5th corner</h6>
                 </div>
