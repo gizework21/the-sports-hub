@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #181921;
+  --color-secondary: #00ffa5;
+  --color-cardBg: #1d1e2b;
+  --color-Primary: #6d00ff;
+  --color-muted: #cac4d0;
+  --color-danger: #EE5E52;
+  --color-bgMuted: #26273B;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("./assets//Poppins/Poppins-Regular.ttf") format("ttf");
+}
+
+@theme {
+  --font-poppinsRegular: "Poppins";
+}
