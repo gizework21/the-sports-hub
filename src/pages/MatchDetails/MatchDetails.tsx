@@ -1,6 +1,7 @@
 import { ChevronLeft } from "lucide-react";
 import Header from "../../components/common/Header";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Tab {
   label: string;
@@ -16,6 +17,7 @@ const tabs: Tab[] = [
 ];
 
 function MatchDetails() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>(
     tabs.find((t) => t.active)?.label || tabs[0].label,
   );
@@ -26,7 +28,10 @@ function MatchDetails() {
       <div className="bg-background min-h-screen p-4 lg:px-72 md:py-4 flex flex-col space-y-4 w-full">
         <div className="pt-2 px-4 flex flex-col space-y-6 bg-cardBg border-b border-[#2A2B41] ">
           <div className="flex space-x-4 items-center">
-            <ChevronLeft className="text-white size-5" />
+            <ChevronLeft
+              onClick={() => navigate(-1)}
+              className="text-white size-5 cursor-pointer"
+            />
             <span className="text-sm text-white">English Premier league</span>
           </div>
 
