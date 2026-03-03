@@ -246,7 +246,7 @@ function MatchDetails() {
             <hr className="border-b border-[#292B41] w-full" />
           </div>
 
-          <div className="flex flex-col space-y-3 items-center justify-center w-full">
+          <div className="flex flex-col space-y-2 items-center justify-center w-full">
             <div className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
               <div className="flex items-center space-x-2 justify-self-end">
                 <div className="flex flex-col">
