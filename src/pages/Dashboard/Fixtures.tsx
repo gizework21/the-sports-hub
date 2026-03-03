@@ -111,7 +111,7 @@ function Fixtures() {
               <div className="flex space-x-2 items-center">
                 <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
                 <h6 className="text-white text-sm">Arsenal</h6>
-                <div className="bg-bgMuted p-1 flex items-center justify-center rounded-md">
+                <div className="bg-bgMuted p-1  flex space-x-0.5 items-center justify-center rounded-md">
                   <img src="/correct.svg" alt="Correct Icon" />
                   <span className="text-secondary text-[8px] md:text-xs">
                     AGG
@@ -177,7 +177,7 @@ function Fixtures() {
                 <h6 className="text-white text-sm whitespace-nowrap">
                   Manchester city
                 </h6>
-                <div className="bg-bgMuted p-1 flex items-center justify-center rounded-md">
+                <div className="bg-bgMuted p-1  flex space-x-0.5 items-center justify-center rounded-md">
                   <img src="/correct.svg" alt="Correct Icon" />
                   <span className="text-secondary text-[8px] md:text-xs">
                     PEN
