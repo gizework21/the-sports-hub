@@ -6,8 +6,8 @@
   --color-cardBg: #1d1e2b;
   --color-Primary: #6d00ff;
   --color-muted: #cac4d0;
-  --color-danger: #EE5E52;
-  --color-bgMuted: #26273B;
+  --color-danger: #ee5e52;
+  --color-bgMuted: #26273b;
 }
 
 @font-face {
@@ -20,4 +20,12 @@
 
 @theme {
   --font-poppinsRegular: "Poppins";
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

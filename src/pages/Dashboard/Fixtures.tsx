@@ -1,56 +1,34 @@
-import {
-  CalendarRange,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Radio,
-} from "lucide-react";
+import { CalendarRange, ChevronLeft, ChevronRight, Radio } from "lucide-react";
+import { useState } from "react";
+import Header from "../../components/common/Header";
+
+function getDates() {
+  const today = new Date();
+  const tempDates = [];
+  for (let i = -3; i <= 3; i++) {
+    const d = new Date();
+    d.setDate(today.getDate() + i);
+    const day = d
+      .toLocaleDateString("en-US", { weekday: "short" })
+      .toUpperCase();
+    const date = d
+      .toLocaleDateString("en-US", { day: "2-digit", month: "short" })
+      .toUpperCase();
+    tempDates.push({ day, date, offset: i });
+  }
+  return tempDates;
+}
 
 function Fixtures() {
+  const [dates] =
+    useState<{ day: string; date: string; offset: number }[]>(getDates());
+
   return (
     <div className="flex flex-col w-full ">
-      <div className="bg-Primary px-4 py-2 flex items-center justify-between">
-        <img src="/logo.svg" alt="Logo" />
-        <div className="flex space-x-1 text-white text-lg font-poppinsRegular ">
-          <h6 className="text-white hover:text-secondary p-2   hover:border-b-secondary hover:border-b-3 cursor-pointer">
-            Live
-          </h6>
-          <h6 className="text-secondary hover:text-secondary p-2 border-b-secondary border-b-3 cursor-pointer">
-            Matches
-          </h6>
-          <h6 className="text-muted  p-2">Standings</h6>
-          <h6 className="text-white hover:text-secondary p-2 hover:border-b-secondary hover:border-b-3 cursor-pointer">
-            Teams
-          </h6>
-          <h6 className="text-white hover:text-secondary p-2 hover:border-b-secondary hover:border-b-3 cursor-pointer">
-            Comparison
-          </h6>
-          <h6 className="text-white hover:text-secondary p-2 hover:border-b-secondary hover:border-b-3 cursor-pointer">
-            Statistics
-          </h6>
-          <h6 className="text-white hover:text-secondary p-2 hover:border-b-secondary hover:border-b-3 cursor-pointer">
-            Venues
-          </h6>
-        </div>
+      <Header />
 
-        <div className="flex space-x-4">
-          <img src="/world.svg" alt="World Icon" className="size-10" />
-          <img src="/ball.svg" alt="Ball Icon" className="size-10" />
-          <div className="bg-[#5D00D9] flex items-center py-2 px-4 rounded-2xl space-x-2 cursor-pointer">
-            <img src="/england.svg" alt="England Flag" className="size-4" />
-            <h6 className="text-white">Premier League</h6>
-            <ChevronDown className="text-[#CAC4D0]" size={16} />
-          </div>
-          <div className="bg-[#5D00D9] flex items-center py-2 px-4 rounded-2xl space-x-2 cursor-pointer">
-            <h6 className="text-[#E6E0E9]">2024/25</h6>
-            <ChevronDown className="text-[#CAC4D0]" size={16} />
-          </div>
-          <img src="/england2.svg" alt="England Flag" className="size-10" />
-        </div>
-      </div>
-
-      <div className="bg-background min-h-screen px-72 py-4 flex flex-col space-y-4 w-full">
-        <div className="flex flex-col space-y-4">
+      <div className="bg-background min-h-screen p-4 lg:px-72 md:py-4 flex flex-col space-y-4 w-full">
+        <div className="hidden md:flex flex-col space-y-4">
           <h6 className="text-white text-xl">Macthes</h6>
           <div className="bg-cardBg px-4 py-3 flex justify-between items-center">
             <ChevronLeft className="text-white size-5" />
@@ -59,6 +37,38 @@ function Fixtures() {
               <h6 className="text-white">Today</h6>
             </div>
             <ChevronRight className="text-white size-5" />
+          </div>
+        </div>
+
+        {/* mobile filter by date */}
+        <div className="flex md:hidden relative pb-2">
+          <div className="flex space-x-4 py-2 overflow-x-auto scrollbar-hidden snap-x snap-mandatory">
+            {dates.map((d, i) => {
+              const distance = Math.abs(d.offset);
+              const opacity = Math.max(0.2, 1 - distance * 0.25);
+              const colorClass =
+                d.offset === 0 ? "text-secondary" : `text-[#DEDFE0]`;
+
+              return (
+                <div
+                  key={i}
+                  className={`flex flex-col space-y-0.5 snap-start min-w-[60px] text-center`}
+                  style={{ opacity }}
+                >
+                  <p className={`text-xs ${colorClass}`}>{d?.day}</p>
+                  <p className={`text-xs  ${colorClass}`}>{d.date}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Calendar Icon */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 p-1 rounded-l-md cursor-pointer">
+            <img
+              src="/calander.svg"
+              alt="Calendar Icon"
+              className="cursor-pointer"
+            />
           </div>
         </div>
 
@@ -103,7 +113,9 @@ function Fixtures() {
                 <h6 className="text-white text-sm">Arsenal</h6>
                 <div className="bg-bgMuted p-1 flex items-center justify-center rounded-md">
                   <img src="/correct.svg" alt="Correct Icon" />
-                  <span className="text-secondary text-xs">AGG</span>
+                  <span className="text-secondary text-[8px] md:text-xs">
+                    AGG
+                  </span>
                 </div>
               </div>
               <div className="flex space-x-2 items-center">
@@ -167,7 +179,9 @@ function Fixtures() {
                 </h6>
                 <div className="bg-bgMuted p-1 flex items-center justify-center rounded-md">
                   <img src="/correct.svg" alt="Correct Icon" />
-                  <span className="text-secondary text-xs">PEN</span>
+                  <span className="text-secondary text-[8px] md:text-xs">
+                    PEN
+                  </span>
                 </div>
               </div>
             </div>
