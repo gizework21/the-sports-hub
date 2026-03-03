@@ -23,7 +23,7 @@ function Header() {
     { label: "Venues", active: false },
   ];
   return (
-    <div className="bg-Primary px-4 py-2 flex flex-col space-y-4 md:space-y-0 w-full">
+    <div className="bg-Primary px-4 py-2 flex flex-col space-y-4 md:space-y-0 w-full font-poppinsRegular">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <img
@@ -34,7 +34,7 @@ function Header() {
         />
 
         {/* Navigation Links */}
-        <div className="hidden lg:flex space-x-1 text-lg font-poppinsRegular">
+        <div className="hidden lg:flex space-x-1 text-lg">
           {navLinks.map((link) => (
             <h6
               key={link.label}
