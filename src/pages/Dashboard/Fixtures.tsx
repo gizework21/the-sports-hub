@@ -146,8 +146,10 @@ function Fixtures() {
             </div>
             <div className="flex flex-col p-2 space-y-2">
               <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
+                <img src="/madrid.svg" alt="Madrid Logo" className="size-4" />
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Real Madrid
+                </h6>
                 <img
                   src="/redCard.svg"
                   alt="Red Card Icon"
@@ -156,11 +158,13 @@ function Fixtures() {
               </div>
               <div className="flex space-x-2 items-center">
                 <img
-                  src="/valencia.svg"
+                  src="/manCity.svg"
                   alt="Valencia Logo"
                   className="size-4"
                 />
-                <h6 className="text-white text-sm">Valencia</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Manchester city
+                </h6>
                 <div className="bg-bgMuted p-1 flex items-center justify-center rounded-md">
                   <img src="/correct.svg" alt="Correct Icon" />
                   <span className="text-secondary text-xs">PEN</span>
@@ -214,11 +218,13 @@ function Fixtures() {
               </div>
               <div className="flex space-x-2 items-center">
                 <img
-                  src="/valencia.svg"
-                  alt="Valencia Logo"
+                  src="/manCity.svg"
+                  alt="Manchester City Logo"
                   className="size-4"
                 />
-                <h6 className="text-white text-sm">Valencia</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Manchester City
+                </h6>
               </div>
             </div>
             <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
@@ -249,16 +255,24 @@ function Fixtures() {
             </div>
             <div className="flex flex-col p-2 space-y-2 relative z-10">
               <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
+                <img
+                  src="/newcastle.svg"
+                  alt="Newcastle United Logo"
+                  className="size-4"
+                />
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Newcastle United
+                </h6>
               </div>
               <div className="flex space-x-2 items-center">
                 <img
-                  src="/valencia.svg"
-                  alt="Valencia Logo"
+                  src="/liverpool.svg"
+                  alt="Liverpool Logo"
                   className="size-4"
                 />
-                <h6 className="text-white text-sm">Valencia</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Liverpool
+                </h6>
               </div>
             </div>
             <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
@@ -281,20 +295,24 @@ function Fixtures() {
 
           <div className="border-l-2 border-[#374151] flex items-center">
             <div className="py-5">
-              <span className="text-white text-xs px-4">23:00</span>
+              <span className="text-white text-xs px-2">23:00</span>
             </div>
             <div className="flex flex-col p-2 space-y-2">
               <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
+                <img src="/burnley.svg" alt="Burnley Logo" className="size-4" />
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Burnley
+                </h6>
               </div>
               <div className="flex space-x-2 items-center">
                 <img
-                  src="/valencia.svg"
-                  alt="Valencia Logo"
+                  src="/manUnited.svg"
+                  alt="Manchester United Logo"
                   className="size-4"
                 />
-                <h6 className="text-white text-sm">Valencia</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Manchester United
+                </h6>
               </div>
             </div>
 
@@ -313,20 +331,24 @@ function Fixtures() {
 
           <div className="border-l-2 border-[#374151] flex items-center">
             <div className="py-5">
-              <span className="text-white text-xs px-4">23:00</span>
+              <span className="text-white text-xs px-2">23:00</span>
             </div>
             <div className="flex flex-col p-2 space-y-2">
               <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
+                <img src="/chealse.svg" alt="Chelsea Logo" className="size-4" />
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Chelsea
+                </h6>
               </div>
               <div className="flex space-x-2 items-center">
                 <img
-                  src="/valencia.svg"
-                  alt="Valencia Logo"
+                  src="/southampton.svg"
+                  alt="Southampton Logo"
                   className="size-4"
                 />
-                <h6 className="text-white text-sm">Valencia</h6>
+                <h6 className="text-white text-sm whitespace-nowrap">
+                  Southampton
+                </h6>
               </div>
             </div>
 
