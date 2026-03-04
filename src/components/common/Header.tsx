@@ -2,10 +2,22 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paths } from "../../router/Paths";
-import { navLinks } from "../../constants/navLinks";
+import { navTabLinks } from "../../constants/navLinks";
+import type { NavLink } from "../../types/sports";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [navLinks, setNavLinks] = useState<NavLink[]>(navTabLinks);
+
+  const handleClick = (index: number) => {
+    if (navLinks[index].muted) return;
+    const updatedLinks = navLinks.map((link, i) => ({
+      ...link,
+      active: i === index,
+    }));
+    setNavLinks(updatedLinks);
+  };
+
   const navigate = useNavigate();
 
   return (
@@ -19,15 +31,16 @@ function Header() {
         />
 
         <div className="hidden lg:flex space-x-1 text-lg">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <h6
               key={link.label}
+              onClick={() => handleClick(index)}
               className={`
-              p-2 cursor-pointer
-              ${link.muted ? "text-muted" : "text-white hover:text-secondary"}
-              ${link.active ? "text-secondary! border-b-secondary border-b-3" : ""}
-              ${!link.active && !link.muted ? "hover:border-b-secondary hover:border-b-3" : ""}
-            `}
+            p-2 cursor-pointer
+            ${link.muted ? "text-gray-400 cursor-not-allowed" : "text-white hover:text-secondary"}
+            ${link.active ? "text-secondary! border-b-3 border-b-secondary" : ""}
+            ${!link.active && !link.muted ? "hover:border-b-3 hover:border-b-secondary" : ""}
+          `}
             >
               {link.label}
             </h6>
@@ -81,12 +94,13 @@ function Header() {
             {navLinks.map((link, index) => (
               <span
                 key={index}
+                onClick={() => handleClick(index)}
                 className={`
-                text-xs py-1 px-2 cursor-pointer whitespace-nowrap
-                ${link.active ? "bg-secondary text-[#0F4D32] rounded-md border-b-2 border-secondary" : ""}
-                ${link.muted ? "text-gray-400" : ""}
-                hover:text-secondary
-                `}
+              text-xs py-1 px-2 cursor-pointer whitespace-nowrap
+              ${link.active ? "bg-secondary text-[#0F4D32] rounded-md border-b-2 border-secondary" : ""}
+              ${link.muted ? "text-gray-400" : ""}
+              hover:text-secondary
+            `}
               >
                 {link.label}
               </span>

@@ -1,6 +1,6 @@
 import type { NavLink } from "../types/sports";
 
-export const navLinks: NavLink[] = [
+export const navTabLinks: NavLink[] = [
   { label: "Live", active: false },
   { label: "Matches", active: true },
   { label: "Standings", active: false, muted: true },
