@@ -5,15 +5,32 @@ import { useFixtures } from "../../hooks/useFixtures";
 import FixturesHeaderSection from "../../sections/FixturesHeaderSection";
 import FilterByDateSection from "../../sections/FilterByDateSection";
 import MatchStatusFilter from "../../sections/MatchStatusFilter";
+import { PremierLeagueShimmer } from "../../components/shimmer/PremierLeagueShimmer";
+import { ChampionsLeagueShimmer } from "../../components/shimmer/ChampionsLeagueShimmer";
+import { filterByLeague, formatKickoffTime } from "../../utils/utilsFunction";
 
 function Fixtures() {
   const { data, isLoading, isError, error } = useFixtures();
   const [active, setActive] = useState("all");
+  const championsLeagueData = filterByLeague(data ?? [], "ucl");
+  const premierLeagueData = filterByLeague(data ?? [], "epl");
 
   console.log("data ", data);
   console.log("isLoading ", isLoading);
   console.log("isError ", isError);
   console.log("error ", error);
+
+  // const championsLeagueData = data?.find((group) => group.league.id === "ucl");
+
+  // const premierLeagueData = data?.find((group) => group.league.id === "epl");
+
+  // const formatKickoffTime = (kickoff: string) => {
+  //   return new Date(kickoff).toLocaleTimeString("en-US", {
+  //     hour: "2-digit",
+  //     minute: "2-digit",
+  //     hour12: false,
+  //   });
+  // };
 
   return (
     <div className="flex flex-col w-full ">
@@ -22,283 +39,284 @@ function Fixtures() {
         <FixturesHeaderSection />
         <FilterByDateSection />
         <MatchStatusFilter active={active} setActive={setActive} />
-        {/* champions league */}
-        <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full font-interRegular">
-          <div className="flex justify-between w-full items-center pb-2">
-            <h6 className="text-white text-sm">UEFA Champions League</h6>
-            <div className="flex justify-end">
-              <ChevronRight className="text-white items-end size-5" />
-            </div>
-          </div>
-          <div className="border-l-2 border-danger flex items-center">
-            <div className="py-5">
-              <span className="text-danger text-xs px-4">FT</span>
-            </div>
-            <div className="flex flex-col p-2 space-y-2">
-              <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
-                <div className="bg-bgMuted p-1  flex space-x-0.5 items-center justify-center rounded-md">
-                  <img src="/correct.svg" alt="Correct Icon" />
-                  <span className="text-secondary text-[8px] md:text-xs">
-                    AGG
-                  </span>
-                </div>
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/valencia.svg"
-                  alt="Valencia Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm">Valencia</h6>
-              </div>
-            </div>
 
-            <div className="flex justify-end py-2  w-full items-center space-x-5  ">
-              <div className="flex space-x-2">
-                <div className="flex flex-col text-[#6B7280] text-xs space-y-2">
-                  <div className="text-[#6B7280]">[2]</div>
-                  <div className="text-[#6B7280]">[0]</div>
-                </div>
-                <div className="flex flex-col text-white text-xs space-y-2">
-                  <div className="">2</div>
-                  <div className="">1</div>
+        {isLoading ? (
+          <ChampionsLeagueShimmer />
+        ) : (
+          championsLeagueData && (
+            <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full font-interRegular">
+              <div className="flex justify-between w-full items-center pb-2">
+                <h6 className="text-white text-sm">
+                  {championsLeagueData.league.name}
+                </h6>
+                <div className="flex justify-end">
+                  <ChevronRight className="text-white items-end size-5" />
                 </div>
               </div>
 
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
+              {championsLeagueData.matches.map((match, index) => (
+                <div key={match.id} className="flex flex-col space-y-2">
+                  <div className="border-l-2 border-danger flex items-center">
+                    <div className="py-5">
+                      <span className="text-danger text-xs px-4">
+                        {match.status}
+                      </span>
+                    </div>
 
-          <hr className="border border-b-[#2A2B41]" />
+                    <div className="flex flex-col p-2 space-y-2">
+                      {/* Home Team */}
+                      <div className="flex space-x-2 items-center">
+                        <img
+                          src={match.home.logo}
+                          alt={`${match.home.name} Logo`}
+                          className="size-4"
+                        />
+                        <h6 className="text-white text-xs whitespace-nowrap">
+                          {match.home.name}
+                        </h6>
+                        {match.home.redCards && (
+                          <img
+                            src="/redCard.svg"
+                            alt="Red Card Icon"
+                            className="size-3"
+                          />
+                        )}
+                        {!match.home.redCards && match.isAggregate && (
+                          <div className="bg-bgMuted p-1 flex space-x-0.5 items-center justify-center rounded-md">
+                            <img src="/correct.svg" alt="Correct Icon" />
+                            <span className="text-secondary text-[8px]">
+                              AGG
+                            </span>
+                          </div>
+                        )}
+                      </div>
 
-          <div className="border-l-2 border-danger flex items-center">
-            <div className="py-5">
-              <span className="text-danger text-xs px-4">FT</span>
+                      {/* Away Team */}
+                      <div className="flex space-x-2 items-center">
+                        <img
+                          src={match.away.logo}
+                          alt={`${match.away.name} Logo`}
+                          className="size-4"
+                        />
+                        <h6 className="text-white text-xs whitespace-nowrap">
+                          {match.away.name}
+                        </h6>
+                        {match.isPenaltyShootout && (
+                          <div className="bg-bgMuted p-1 flex space-x-0.5 items-center justify-center rounded-md">
+                            <img src="/correct.svg" alt="Correct Icon" />
+                            <span className="text-secondary text-[8px]">
+                              PEN
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end py-2 w-full items-center space-x-5">
+                      <div className="flex space-x-2">
+                        <div className="flex flex-col text-[#6B7280] text-xs space-y-2">
+                          <div className="text-[#6B7280]">
+                            {match.isAggregate || match.isPenaltyShootout
+                              ? `[${match.home.score.penalties || match.home.score.aggregate || 0}]`
+                              : "[]"}
+                          </div>
+                          <div className="text-[#6B7280]">
+                            {match.isAggregate || match.isPenaltyShootout
+                              ? `[${match.away.score.penalties || match.away.score.aggregate || 0}]`
+                              : "[]"}
+                          </div>
+                        </div>
+                        <div className="flex flex-col text-white text-xs space-y-2">
+                          <div>{match.home.score.regular}</div>
+                          <div>{match.away.score.regular}</div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center">
+                        <img
+                          src="/menuDot.svg"
+                          alt="Menu Dot Icon"
+                          className="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Add separator between matches except for the last one */}
+                  {index < championsLeagueData?.matches.length - 1 && (
+                    <hr className="border border-b-[#2A2B41]" />
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="flex flex-col p-2 space-y-2">
-              <div className="flex space-x-2 items-center">
-                <img src="/madrid.svg" alt="Madrid Logo" className="size-4" />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Real Madrid
+          )
+        )}
+
+        {isLoading ? (
+          <PremierLeagueShimmer />
+        ) : (
+          premierLeagueData && (
+            <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full">
+              <div className="flex justify-between w-full items-center pb-2">
+                <h6 className="text-white text-sm">
+                  {premierLeagueData.league.name}
                 </h6>
-                <img
-                  src="/redCard.svg"
-                  alt="Red Card Icon"
-                  className="size-3"
-                />
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/manCity.svg"
-                  alt="Valencia Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Manchester city
-                </h6>
-                <div className="bg-bgMuted p-1  flex space-x-0.5 items-center justify-center rounded-md">
-                  <img src="/correct.svg" alt="Correct Icon" />
-                  <span className="text-secondary text-[8px] md:text-xs">
-                    PEN
-                  </span>
+                <div className="flex justify-end">
+                  <ChevronRight className="text-white items-end size-5" />
                 </div>
               </div>
-            </div>
 
-            <div className="flex justify-end py-2  w-full items-center space-x-5  ">
-              <div className="flex space-x-2">
-                <div className="flex flex-col text-[#6B7280] text-xs space-y-2">
-                  <div className="text-[#6B7280]">[2]</div>
-                  <div className="text-[#6B7280]">[0]</div>
-                </div>
-                <div className="flex flex-col text-white text-xs space-y-2">
-                  <div className="">2</div>
-                  <div className="">1</div>
-                </div>
-              </div>
+              {premierLeagueData.matches.map((match, index) => (
+                <div key={match.id} className="flex flex-col space-y-1">
+                  {/* LIVE match */}
+                  {match.status === "LIVE" && (
+                    <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
+                      <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
+                      <div className="py-5 px-4 relative z-10">
+                        <span className="wipe-underline text-secondary text-xs font-bold">
+                          {match.minute}'
+                        </span>
+                      </div>
+                      <div className="flex flex-col py-2 space-y-2 relative z-10">
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.home.logo}
+                            alt={`${match.home.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs">
+                            {match.home.name}
+                          </h6>
+                        </div>
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.away.logo}
+                            alt={`${match.away.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs whitespace-nowrap">
+                            {match.away.name}
+                          </h6>
+                        </div>
+                      </div>
+                      <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
+                        <div className="flex space-x-2">
+                          <div className="flex flex-col text-white text-xs space-y-2">
+                            <div>{match.home.score.regular}</div>
+                            <div>{match.away.score.regular}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <img
+                            src="/menuDot.svg"
+                            alt="Menu Dot Icon"
+                            className="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-          <hr className="border border-b-[#2A2B41]" />
-        </div>
-        {/* englihs premier league */}
-        <div className="flex flex-col space-y-2 p-4 bg-cardBg rounded-xl min-w-full">
-          <div className="flex justify-between w-full items-center pb-2">
-            <h6 className="text-white text-sm">English Premier League</h6>
-            <div className="flex justify-end">
-              <ChevronRight className="text-white items-end size-5" />
-            </div>
-          </div>
+                  {/* HT match */}
+                  {match.status === "HT" && (
+                    <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
+                      <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
+                      <div className="py-5 px-4 relative z-10">
+                        <span className="wipe-underline text-secondary text-xs font-bold">
+                          HT
+                        </span>
+                      </div>
+                      <div className="flex flex-col py-2 space-y-2 relative z-10">
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.home.logo}
+                            alt={`${match.home.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs whitespace-nowrap">
+                            {match.home.name}
+                          </h6>
+                        </div>
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.away.logo}
+                            alt={`${match.away.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs whitespace-nowrap">
+                            {match.away.name}
+                          </h6>
+                        </div>
+                      </div>
+                      <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
+                        <div className="flex space-x-2">
+                          <div className="flex flex-col text-white text-xs space-y-2">
+                            <div>{match.home.score.regular}</div>
+                            <div>{match.away.score.regular}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <img
+                            src="/menuDot.svg"
+                            alt="Menu Dot Icon"
+                            className="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-          <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
-            <div className="py-5 relative z-10">
-              <span className="text-secondary text-xs px-4 font-bold underline decoration-2 underline-offset-4">
-                63'
-              </span>
-            </div>
-            <div className="flex flex-col p-2 space-y-2 relative z-10">
-              <div className="flex space-x-2 items-center">
-                <img src="/arsenal.svg" alt="Arsenal Logo" className="size-4" />
-                <h6 className="text-white text-sm">Arsenal</h6>
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/manCity.svg"
-                  alt="Manchester City Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Manchester City
-                </h6>
-              </div>
-            </div>
-            <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
-              <div className="flex space-x-2">
-                <div className="flex flex-col text-white text-xs space-y-2">
-                  <div>2</div>
-                  <div>1</div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-          <hr className="border border-b-[#2A2B41]" />
-          <div className="border-l-2 border-secondary flex items-center relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-[calc(10%+60px)] bg-linear-to-r from-[#1B3337] to-transparent pointer-events-none" />
-            <div className="py-5 relative z-10">
-              <span className="text-secondary text-xs px-4 font-bold underline decoration-2 underline-offset-4">
-                HT
-              </span>
-            </div>
-            <div className="flex flex-col p-2 space-y-2 relative z-10">
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/newcastle.svg"
-                  alt="Newcastle United Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Newcastle United
-                </h6>
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/liverpool.svg"
-                  alt="Liverpool Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Liverpool
-                </h6>
-              </div>
-            </div>
-            <div className="flex justify-end py-2 w-full items-center space-x-5 relative z-10">
-              <div className="flex space-x-2">
-                <div className="flex flex-col text-white text-xs space-y-2">
-                  <div>2</div>
-                  <div>1</div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-          <hr className="border border-b-[#2A2B41]" />
-          <div className="border-l-2 border-[#374151] flex items-center">
-            <div className="py-5">
-              <span className="text-white text-xs px-2">23:00</span>
-            </div>
-            <div className="flex flex-col p-2 space-y-2">
-              <div className="flex space-x-2 items-center">
-                <img src="/burnley.svg" alt="Burnley Logo" className="size-4" />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Burnley
-                </h6>
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/manUnited.svg"
-                  alt="Manchester United Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Manchester United
-                </h6>
-              </div>
-            </div>
-            <div className="flex justify-end py-2  w-full items-center space-x-5  ">
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-          </div>
-          <hr className="border border-b-[#2A2B41]" />
-          <div className="border-l-2 border-[#374151] flex items-center">
-            <div className="py-5">
-              <span className="text-white text-xs px-2">23:00</span>
-            </div>
-            <div className="flex flex-col p-2 space-y-2">
-              <div className="flex space-x-2 items-center">
-                <img src="/chealse.svg" alt="Chelsea Logo" className="size-4" />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Chelsea
-                </h6>
-              </div>
-              <div className="flex space-x-2 items-center">
-                <img
-                  src="/southampton.svg"
-                  alt="Southampton Logo"
-                  className="size-4"
-                />
-                <h6 className="text-white text-sm whitespace-nowrap">
-                  Southampton
-                </h6>
-              </div>
-            </div>
+                  {/* Not Started matches */}
+                  {match.status === "NS" && (
+                    <div className="border-l-2 border-[#374151] flex items-center">
+                      <div className="py-5">
+                        <span className="text-white text-xs px-2">
+                          {formatKickoffTime(match.kickoff)}
+                        </span>
+                      </div>
+                      <div className="flex flex-col py-2 space-y-2">
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.home.logo}
+                            alt={`${match.home.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs whitespace-nowrap">
+                            {match.home.name}
+                          </h6>
+                        </div>
+                        <div className="flex space-x-2 items-center">
+                          <img
+                            src={match.away.logo}
+                            alt={`${match.away.name} Logo`}
+                            className="size-4"
+                          />
+                          <h6 className="text-white text-xs whitespace-nowrap">
+                            {match.away.name}
+                          </h6>
+                        </div>
+                      </div>
+                      <div className="flex justify-end py-2 w-full items-center space-x-5">
+                        <div className="flex items-center">
+                          <img
+                            src="/menuDot.svg"
+                            alt="Menu Dot Icon"
+                            className="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-            <div className="flex justify-end py-2  w-full items-center space-x-5  ">
-              <div className="flex items-center">
-                <img
-                  src="/menuDot.svg"
-                  alt="Menu Dot Icon"
-                  className="cursor-pointer"
-                />
-              </div>
+                  {/* Add separator between matches except for the last one */}
+                  {index < premierLeagueData.matches.length - 1 && (
+                    <hr className="border border-b-[#2A2B41]" />
+                  )}
+                </div>
+              ))}
             </div>
-          </div>
-          <hr className="border border-b-[#2A2B41]" />
-        </div>
+          )
+        )}
       </div>
     </div>
   );

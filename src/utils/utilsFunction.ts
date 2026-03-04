@@ -1,3 +1,5 @@
+import type { LeagueGroup } from "../types/sports";
+
 export function getDates() {
   const today = new Date();
   const tempDates = [];
@@ -14,3 +16,19 @@ export function getDates() {
   }
   return tempDates;
 }
+
+export const filterByLeague = (
+  data: LeagueGroup[],
+  leagueId: string,
+): LeagueGroup | null => {
+  const leagueGroup = data?.find((group) => group.league.id === leagueId);
+  return leagueGroup ?? null;
+};
+
+export const formatKickoffTime = (kickoff: string) => {
+  return new Date(kickoff).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+};

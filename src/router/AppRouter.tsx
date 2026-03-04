@@ -6,12 +6,10 @@ import MatchDetails from "../pages/MatchDetails/MatchDetails";
 function AppRouter() {
   return (
     <Router>
-      {/* <Header /> */}
       <Routes>
         <Route path={Paths.home} Component={Fixtures} />
         <Route path={Paths.matchDetails} Component={MatchDetails} />
       </Routes>
-      {/* <Footer /> */}
     </Router>
   );
 }

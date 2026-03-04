@@ -1,23 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import type { FixturesResponse, MatchEvent } from "../types/sports";
-import { ENDPOINTS } from "../api/api";
+import type { LeagueGroup } from "../types/sports";
 
-const fetchFixtures = async (): Promise<MatchEvent[]> => {
-  const res = await fetch(ENDPOINTS.NEXT_EVENTS("4396"));
+const fetchFixtures = async () => {
+  const res = await fetch("/api/fixtures");
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch fixtures");
-  }
+  if (!res.ok) throw new Error("Failed to fetch");
 
-  const data: FixturesResponse = await res.json();
-
-  return data.events ?? [];
+  const data = await res.json();
+  return data.data;
 };
 
 export const useFixtures = () => {
-  return useQuery<MatchEvent[]>({
+  return useQuery<LeagueGroup[]>({
     queryKey: ["fixtures"],
     queryFn: fetchFixtures,
+    staleTime: 10 * 60 * 1000,
     refetchInterval: 20000,
   });
 };

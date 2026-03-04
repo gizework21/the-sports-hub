@@ -37,3 +37,56 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.wipe-underline {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.wipe-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  animation: wipeLine 2s linear infinite;
+}
+@keyframes wipeLine {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  25% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  26% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  75% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  76% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}

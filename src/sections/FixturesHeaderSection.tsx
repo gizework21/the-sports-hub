@@ -8,7 +8,7 @@ function FixturesHeaderSection() {
         <ChevronLeft className="text-white size-5 cursor-pointer" />
         <div className="flex space-x-2 items-center cursor-pointer">
           <CalendarRange className="text-white size-5" />
-          <h6 className="text-white font-semibold">Today</h6>
+          <h6 className="text-white font-semibold text-sm">Today</h6>
         </div>
         <ChevronRight className="text-white size-5 cursor-pointer" />
       </div>
