@@ -20,18 +20,6 @@ function Fixtures() {
   console.log("isError ", isError);
   console.log("error ", error);
 
-  // const championsLeagueData = data?.find((group) => group.league.id === "ucl");
-
-  // const premierLeagueData = data?.find((group) => group.league.id === "epl");
-
-  // const formatKickoffTime = (kickoff: string) => {
-  //   return new Date(kickoff).toLocaleTimeString("en-US", {
-  //     hour: "2-digit",
-  //     minute: "2-digit",
-  //     hour12: false,
-  //   });
-  // };
-
   return (
     <div className="flex flex-col w-full ">
       <Header />
