@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Paths } from "./Paths";
+import { Paths } from "../router/Paths";
 import Fixtures from "../pages/Dashboard/Fixtures";
 import MatchDetails from "../pages/MatchDetails/MatchDetails";
 
