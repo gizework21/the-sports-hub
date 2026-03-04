@@ -9,6 +9,7 @@ import { PremierLeagueShimmer } from "../../components/shimmer/PremierLeagueShim
 import { ChampionsLeagueShimmer } from "../../components/shimmer/ChampionsLeagueShimmer";
 import { filterByLeague, formatKickoffTime } from "../../utils/utilsFunction";
 import ErrorMessage from "../../components/common/ErrorMessage";
+import { MatchStatusFilterShimmer } from "../../components/shimmer/MatchStatusFilterShimmer";
 
 function Fixtures() {
   const { data, isLoading, isError, error } = useFixtures();
@@ -22,7 +23,12 @@ function Fixtures() {
       <div className="bg-background min-h-screen p-4 lg:px-72 md:py-4 flex flex-col space-y-4 w-full">
         <FixturesHeaderSection />
         <FilterByDateSection />
-        {data && <MatchStatusFilter active={active} setActive={setActive} />}
+
+        {isLoading ? (
+          <MatchStatusFilterShimmer />
+        ) : (
+          data && <MatchStatusFilter active={active} setActive={setActive} />
+        )}
 
         {isError && (
           <ErrorMessage
