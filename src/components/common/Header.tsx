@@ -2,30 +2,15 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paths } from "../../router/Paths";
-
-interface NavLink {
-  label: string;
-  active?: boolean;
-  muted?: boolean;
-}
+import { navLinks } from "../../constants/navLinks";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const navLinks: NavLink[] = [
-    { label: "Live", active: false },
-    { label: "Matches", active: true },
-    { label: "Standings", active: false, muted: true },
-    { label: "Teams", active: false },
-    { label: "Comparison", active: false },
-    { label: "Statistics", active: false },
-    { label: "Venues", active: false },
-  ];
   return (
     <div className="bg-Primary px-4 py-2 flex flex-col space-y-4 md:space-y-0 w-full font-poppinsRegular">
       <div className="flex items-center justify-between w-full">
-        {/* Logo */}
         <img
           onClick={() => navigate(Paths.home)}
           src="/logo.svg"
@@ -33,7 +18,6 @@ function Header() {
           className="w-22.5 h-7.5 md:w-50 md:h-15 cursor-pointer"
         />
 
-        {/* Navigation Links */}
         <div className="hidden lg:flex space-x-1 text-lg">
           {navLinks.map((link) => (
             <h6
@@ -50,7 +34,6 @@ function Header() {
           ))}
         </div>
 
-        {/* Icons & Selectors */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <img
             src="/world.svg"

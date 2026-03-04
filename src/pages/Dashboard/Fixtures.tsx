@@ -8,6 +8,7 @@ import MatchStatusFilter from "../../sections/MatchStatusFilter";
 import { PremierLeagueShimmer } from "../../components/shimmer/PremierLeagueShimmer";
 import { ChampionsLeagueShimmer } from "../../components/shimmer/ChampionsLeagueShimmer";
 import { filterByLeague, formatKickoffTime } from "../../utils/utilsFunction";
+import ErrorMessage from "../../components/common/ErrorMessage";
 
 function Fixtures() {
   const { data, isLoading, isError, error } = useFixtures();
@@ -15,18 +16,22 @@ function Fixtures() {
   const championsLeagueData = filterByLeague(data ?? [], "ucl");
   const premierLeagueData = filterByLeague(data ?? [], "epl");
 
-  console.log("data ", data);
-  console.log("isLoading ", isLoading);
-  console.log("isError ", isError);
-  console.log("error ", error);
-
   return (
     <div className="flex flex-col w-full ">
       <Header />
       <div className="bg-background min-h-screen p-4 lg:px-72 md:py-4 flex flex-col space-y-4 w-full">
         <FixturesHeaderSection />
         <FilterByDateSection />
-        <MatchStatusFilter active={active} setActive={setActive} />
+        {data && <MatchStatusFilter active={active} setActive={setActive} />}
+
+        {isError && (
+          <ErrorMessage
+            message={
+              (error as Error)?.message ||
+              "Something went wrong while fetching fixtures."
+            }
+          />
+        )}
 
         {isLoading ? (
           <ChampionsLeagueShimmer />
