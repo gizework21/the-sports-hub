@@ -1,4 +1,4 @@
-import type { NavLink } from "../types/sports";
+import type { NavLink, Tab } from "../types/sports";
 
 export const navTabLinks: NavLink[] = [
   { label: "Live", active: false },
@@ -8,4 +8,12 @@ export const navTabLinks: NavLink[] = [
   { label: "Comparison", active: false },
   { label: "Statistics", active: false },
   { label: "Venues", active: false },
+];
+
+export const tabs: Tab[] = [
+  { label: "Details" },
+  { label: "Odds" },
+  { label: "Events", active: true },
+  { label: "Stats" },
+  { label: "Standings" },
 ];

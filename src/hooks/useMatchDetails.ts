@@ -1,23 +1,21 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { ENDPOINTS } from "../api/api";
-// import type { MatchDetailsResponse, MatchEvent } from "../types/sports";
+import { useQuery } from "@tanstack/react-query";
+import type { MatchDetailsResponse } from "../types/sports";
 
-// const fetchMatchDetails = async (id: string): Promise<MatchEvent | null> => {
-//   const res = await fetch(ENDPOINTS.EVENT_DETAILS(id));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch match details");
-//   }
+const fetchMatchDetails = async () => {
+  await delay(2000);
+  const res = await fetch("/mock/matchDetails.json");
+  if (!res.ok) throw new Error("Failed to fetch matches details");
+  const data = await res.json();
+  return data;
+};
 
-//   const data: MatchDetailsResponse = await res.json();
-
-//   return data.events?.[0] ?? null;
-// };
-
-// export const useMatchDetails = (id: string) => {
-//   return useQuery<MatchEvent | null>({
-//     queryKey: ["match", id],
-//     queryFn: () => fetchMatchDetails(id),
-//     enabled: !!id,
-//   });
-// };
+export const useMatchDetails = () => {
+  return useQuery<MatchDetailsResponse>({
+    queryKey: ["matchDetails"],
+    queryFn: fetchMatchDetails,
+    staleTime: 5 * 60 * 1000,
+    refetchInterval: 20000,
+  });
+};

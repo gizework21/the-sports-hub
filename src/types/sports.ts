@@ -43,43 +43,111 @@ export interface LeagueGroup {
 
 /* ---------- DETAIL PAGE ---------- */
 
-export type EventType =
-  | "goal"
-  | "yellow"
-  | "red"
-  | "substitution"
-  | "corner"
-  | "injury"
-  | "penalty_goal";
+export interface MatchDetailsResponse {
+  league: string;
 
-export interface MatchEvent {
-  id: string;
+  match: {
+    date: string;
+    kickoff: string;
+    status: string;
+    score: {
+      home: number;
+      away: number;
+    };
+  };
+
+  teams: {
+    home: {
+      name: string;
+      logo: string;
+      yellowCards?: number;
+      redCards?: number;
+    };
+    away: {
+      name: string;
+      logo: string;
+      yellowCards?: number;
+      redCards?: number;
+    };
+  };
+
+  events: {
+    fulltime: {
+      score: string;
+      list: {
+        id: number;
+        minute: number;
+        team: "home" | "away";
+        type:
+          | "goal"
+          | "yellow"
+          | "red"
+          | "corner"
+          | "substitution"
+          | "injury"
+          | "offPost";
+        player: string;
+        assist?: string;
+        description?: string;
+      }[];
+    };
+
+    halftime: {
+      score: string;
+      list: {
+        id: number;
+        minute: number;
+        team: "home" | "away";
+        type:
+          | "goal"
+          | "yellow"
+          | "red"
+          | "corner"
+          | "substitution"
+          | "injury"
+          | "offPost";
+        player: string;
+        assist?: string;
+        description?: string;
+      }[];
+    };
+  };
+}
+
+export type MatchEvent = {
+  id: number;
   minute: number;
-  extraMinute?: number;
   team: "home" | "away";
-  type: EventType;
+  type:
+    | "goal"
+    | "yellow"
+    | "red"
+    | "corner"
+    | "substitution"
+    | "injury"
+    | "offPost";
   player: string;
   assist?: string;
   description?: string;
-}
+};
 
-export interface MatchStatistics {
-  possession: { home: number; away: number };
-  shots: { home: number; away: number };
-  shotsOnTarget: { home: number; away: number };
-  corners: { home: number; away: number };
-  fouls: { home: number; away: number };
-}
+export const EVENT_ICONS: Record<string, string> = {
+  goal: "/greenball.svg",
+  yellow: "/yellow.svg",
+  red: "/redCard2.svg",
+  corner: "/cornaFlag.svg",
+  substitution: "/exchange.svg",
+  injury: "/injured.svg",
+  offPost: "/offThePost.svg",
+};
 
-export interface MatchDetailsResponse {
-  match: MatchSummary;
-  league: League;
-  events: MatchEvent[];
-  statistics: MatchStatistics;
+export interface Tab {
+  label: string;
+  active?: boolean;
 }
 
 export interface NavLink {
   label: string;
-  active?: boolean;
+  active: boolean;
   muted?: boolean;
 }

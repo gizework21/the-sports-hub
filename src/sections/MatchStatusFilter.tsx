@@ -28,7 +28,7 @@ function MatchStatusFilter({
   setActive: (key: string) => void;
 }) {
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 font-interRegular">
       {filters.map((item) => {
         const isActive = active === item.key;
         return (
