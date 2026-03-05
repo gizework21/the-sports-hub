@@ -4,7 +4,6 @@ import HTMatch from "./HTMatch";
 import NSMatch from "./NSMatch";
 import DefaultMatch from "./DefaultMatch";
 import { useNavigate } from "react-router-dom";
-import { Paths } from "../../router/Paths";
 
 export interface MatchCardProps {
   match: MatchSummary;
@@ -22,7 +21,7 @@ const MatchCard = ({
   if (variant === "premier") {
     return (
       <div
-        onClick={() => navigate(Paths.matchDetails)}
+        onClick={() => navigate("/match/2341234")}
         className="flex flex-col space-y-2 cursor-pointer"
       >
         {match.status === "LIVE" && <LiveMatch match={match} />}
@@ -37,7 +36,7 @@ const MatchCard = ({
 
   return (
     <div
-      onClick={() => navigate(Paths.matchDetails)}
+      onClick={() => navigate("/match/2341234")}
       className="flex flex-col space-y-2 cursor-pointer"
     >
       <DefaultMatch match={match} />
