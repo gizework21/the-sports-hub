@@ -28,7 +28,7 @@
       "list": [
         {
           "id": 1,
-          "minute": 89,
+          "minute": 90,
           "team": "home",
           "type": "substitution",
           "player": "Gyokores",
@@ -36,7 +36,7 @@
         },
         {
           "id": 2,
-          "minute": 88,
+          "minute": 85,
           "team": "away",
           "type": "goal",
           "player": "Ekitike",
@@ -51,14 +51,14 @@
         },
         {
           "id": 4,
-          "minute": 74,
+          "minute": 75,
           "team": "home",
           "type": "corner",
           "player": "3rd corner"
         },
         {
           "id": 5,
-          "minute": 89,
+          "minute": 88,
           "team": "home",
           "type": "substitution",
           "player": "Rice",
@@ -66,7 +66,7 @@
         },
         {
           "id": 6,
-          "minute": 89,
+          "minute": 87,
           "team": "away",
           "type": "substitution",
           "player": "Frimpong",
@@ -82,7 +82,7 @@
         },
         {
           "id": 8,
-          "minute": 88,
+          "minute": 65,
           "team": "home",
           "type": "goal",
           "player": "Ekitike"
@@ -96,7 +96,7 @@
         },
         {
           "id": 10,
-          "minute": 74,
+          "minute": 73,
           "team": "away",
           "type": "corner",
           "player": "5th corner"
