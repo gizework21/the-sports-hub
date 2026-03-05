@@ -39,15 +39,7 @@ Using yarn:
 yarn install
 ```
 
-### Step 3: Environment Setup
-
-Create a `.env` file in the root directory (if needed):
-
-```env
-VITE_API_BASE_URL=your_api_url_here
-```
-
-### Step 4: Start Development Server
+### Step 3: Start Development Server
 
 Using npm:
 
@@ -63,7 +55,7 @@ yarn dev
 
 The application will start at `http://localhost:5173`
 
-### Step 5: Build for Production
+### Step 4: Build for Production
 
 ```bash
 npm run build
