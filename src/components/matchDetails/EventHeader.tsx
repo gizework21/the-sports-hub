@@ -30,6 +30,11 @@ function EventHeader({
         <div className="flex flex-col items-center">
           <div className="relative">
             <img src={data?.teams.home.logo} alt="" />
+            <img
+              src="/yellowNum2.svg"
+              alt=""
+              className="absolute -right-3 top-0"
+            />
           </div>
           <h6 className="text-white text-center text-sm">
             {data?.teams.home.name}
@@ -50,6 +55,12 @@ function EventHeader({
 
         <div className="flex flex-col items-center">
           <div className="relative">
+            <img src="/redNum1.svg" alt="" className="absolute -left-5 top-0" />
+            <img
+              src="/yellowNum1.svg"
+              alt=""
+              className="absolute -left-2 top-0"
+            />
             <img src={data?.teams.away.logo} alt="" />
           </div>
           <h6 className="text-white text-center text-sm">
